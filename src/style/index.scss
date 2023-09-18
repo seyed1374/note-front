@@ -1,0 +1,111 @@
+@import "signup.scss";
+@import "login";
+@import "note";
+
+:root {
+  --first-color: #6c6a6a;
+  --second-color: #231F20;
+
+  --first-background-color: #544a4a;
+  --second-background-color: #231F20;
+  --third-background-color: #202124;
+  --forth-background-color: #ECEFF1;
+  --fifth-background-color: #6D6D6D;
+  --sixth-background-color: #ECECEC;
+  --seventh-background-color:rgba(48,3f3d3de 215, 181, 0.7);
+  --eighth-background-color: rgba(236, 239, 241, 0.8);
+
+  --first-font-size: 10px;
+  --first2-font-size: 12px;
+  --second-font-size: 13px;
+  --third-font-size: 14px;
+  --forth-font-size: 15px;
+  --fifth-font-size: 16px;
+  --sixth-font-size: 20px;
+  --seventh-font-size: 24px;
+
+  --first-radius: 5px;
+  --second-radius: 16px;
+  --third-radius: 18px;
+  --forth-radius: 50px;
+
+  --first-border-color: #b5b0b0;
+  --second-border-color: #4870C0;
+  --third-border-color: #96979780;
+  --forth-border-color: #61636C4D;
+
+
+  --first-text-color: #231F20;
+  --second-text-color: #b5b0b0;
+  --third-text-color: #ffffff;
+  --forth-text-color: #1f3a1d;
+  --fifth-text-color: #FF7272;
+  --sixth-text-color: #707070;
+  --seventh-text-color: #F23218;
+  --eighth-text-color: #757779;
+  --ninth-text-color: #484848;
+
+  --first-solid-padding: calc(0.02 * 100vw);
+  --second-solid-padding: calc(0.05 * 100vw);
+  --third-solid-padding: calc(0.08 * 100vw);
+
+  --first-shadow: 0 4px 12px #E9E9F3;
+}
+
+@font-face {
+  font-family: "my-font";
+  src: url("../fonts/dana-fanum-regular.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "my-font-demibold";
+  src: url("../fonts/dana-fanum-demibold.woff2") format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "my-font-bold";
+  src: url("../fonts/dana-fanum-bold.woff2") format("woff2");
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  direction: ltr;
+  font-family: "my-font", serif;
+  width: 100%;
+  min-width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+* {
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: inherit;
+  text-align: inherit;
+  background-color: transparent;
+  font-size: inherit;
+  font-family: inherit;
+  border: none;
+  font-weight: normal;
+}
+
+*:focus {
+  outline: none;
+}
+
+h1, h2, h3, h4 {
+  font-family: "my-font-demibold", serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+

@@ -1,0 +1,64 @@
+.signup {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: var(--second-solid-padding);
+}
+
+.signup-left {
+  margin-right: 60px;
+}
+
+.signup-title {
+  font-size: var(--seventh-font-size);
+  font-family: "my-font-demibold", serif;
+  margin-bottom: 10px;
+}
+
+.signup-input {
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.signup-input-icon {
+  width: 8px;
+  height: 8px;
+  position: absolute;
+  top: 8px;
+}
+
+.signup-input-detail {
+  border-bottom: 1px solid var(--first-text-color);
+  font-size: var(--second-font-size);
+  padding-left: 10px;
+  width: 230px;
+}
+
+.signup-button {
+  border: 1px solid var(--second-border-color);
+  background: var(--second-border-color);
+  color: var(--third-text-color);
+  margin-top: 20px;
+  padding: 10px 25px;
+  border-radius: var(--first-radius);
+  font-size: var(--second-font-size);
+}
+
+.signup-right {
+  width: 250px;
+  height: 250px;
+}
+
+.signup-text {
+  font-size: var(--first-font-size);
+  margin-top: 15px;
+  display: flex;
+  cursor: pointer;
+}
+
+.signup-text-login {
+  font-family: "my-font-demibold", serif;
+  margin-left: 8px;
+}

@@ -1,0 +1,90 @@
+.note {
+  display: flex;
+}
+
+.note-panel {
+  background-color: var(--first-background-color);
+  width: 25%;
+  height: 100vh;
+}
+
+.note-border {
+  border: 1px solid var(--second-background-color);
+}
+
+.note-body {
+  background-color: var(--third-background-color);
+  width: 75%;
+  height: 100vh;
+}
+
+.note-panel-header {
+  text-align: right;
+  height: 50px;
+}
+
+.note-panel-header-delete {
+  width: 20px;
+  height: 20px;
+  margin: 15px;
+}
+
+.note-body-header {
+  height: 50px;
+  background-color: var(--first-background-color);
+  display: flex;
+  justify-content: space-between;
+}
+
+.note-body-header-add-note {
+  width: 20px;
+  height: 20px;
+  margin: 15px;
+}
+
+.note-body-header-btn {
+  margin-right: 15px;
+  color: var(--forth-text-color);
+  font-size: var(--sixth-font-size);
+  font-family: "my-font-demibold", serif;
+}
+
+.note-panel-detail {
+  padding: 5px var(--first-solid-padding);
+}
+
+.note-panel-note-box {
+  border-bottom: 1px solid var(--first-border-color);
+  padding-bottom: 5px;
+}
+
+.note-panel-note-box-title {
+  font-size: var(--fifth-font-size);
+  font-family: "my-font-demibold", serif;
+  color: var(--third-text-color);
+  margin-bottom: -8px;
+}
+
+.note-panel-note-box-text {
+  font-size: var(--third-font-size);
+  font-family: "my-font", serif;
+  color: var(--second-text-color);
+}
+
+.note-body-title {
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 15px;
+  color: var(--third-text-color);
+  font-size: var(--third-font-size);
+}
+
+.note-body-text {
+  width: 100%;
+  height: 85vh;
+  resize: none;
+  padding-left: 15px;
+  padding-top: 8px;
+  color: var(--third-text-color);
+  font-size: var(--second-font-size);
+}

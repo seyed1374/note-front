@@ -1,0 +1,20 @@
+.login {
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: var(--second-solid-padding);
+}
+
+.login-left {
+  width: 250px;
+  height: 250px;
+  margin-right: 60px;
+}
+
+.login-title {
+  font-size: var(--seventh-font-size);
+  font-family: "my-font-demibold", serif;
+  margin-bottom: 10px;
+}
