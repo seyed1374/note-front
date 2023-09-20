@@ -7,6 +7,7 @@ function NoteProvider({children})
 {
     const initialState = {
         list: {},
+        keys: [],
     }
     const [state, dispatch] = useReducer(reducer, initialState)
 
@@ -24,6 +25,7 @@ function NoteProvider({children})
                         ...state.list,
                         ...data.reduce((sum, item) => ({...sum, [item._id]: item}), {}),
                     },
+                    keys: data.reduce((sum, item) => [...sum, item._id], []),
                 }
             }
             case ADD_NOTE:
@@ -35,11 +37,12 @@ function NoteProvider({children})
                         ...state.list,
                         [data._id]: data,
                     },
+                    keys: [data._id, ...state.keys],
                 }
             }
             case UPDATE_NOTE:
             {
-                const {res: {data: {data}}} = payload
+                const {res: {data}} = payload
                 return {
                     ...state,
                     list: {
@@ -51,11 +54,11 @@ function NoteProvider({children})
             case DELETE_NOTE:
             {
                 const {note_id} = payload
-                const list = {...state.list}
-                delete list[note_id]
+                const keys = [...state.keys]
+                keys.splice(keys.indexOf(note_id), 1)
                 return {
                     ...state,
-                    list,
+                    keys,
                 }
             }
             default:

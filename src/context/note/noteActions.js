@@ -11,6 +11,7 @@ function addNote({data: {title, text}, dispatch})
                 type: ADD_NOTE,
                 payload: {res},
             })
+            return res
         })
 
 }
@@ -27,15 +28,16 @@ function getNotes({dispatch})
         })
 }
 
-function updateNote({data: {title, text}, dispatch})
+function updateNote({data: {title, text, _id}, dispatch})
 {
-    return request.patch({url: API_URLS.note, data: {title, text}})
+    return request.post({url: API_URLS.note, data: {title, text, _id}})
         .then(res =>
         {
             dispatch({
                 type: UPDATE_NOTE,
                 payload: {res},
             })
+            return res
         })
 }
 

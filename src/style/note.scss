@@ -50,19 +50,22 @@
 }
 
 .note-panel-detail {
-  padding: 5px var(--first-solid-padding);
+  padding: 5px var(--second-solid-padding);
+  height: 90%;
+  overflow-y: scroll;
 }
 
 .note-panel-note-box {
   border-bottom: 1px solid var(--first-border-color);
   padding-bottom: 5px;
+  padding-top: 8px;
 }
 
 .note-panel-note-box-title {
   font-size: var(--fifth-font-size);
   font-family: "my-font-demibold", serif;
   color: var(--third-text-color);
-  margin-bottom: -8px;
+  margin-bottom: -6px;
 }
 
 .note-panel-note-box-text {

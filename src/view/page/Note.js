@@ -6,15 +6,17 @@ import {NoteContext} from "../../context/note/noteReducer"
 
 function Note()
 {
-    const {state: note} = useContext(NoteContext)
+    const {state: {list, keys, note_id}} = useContext(NoteContext)
+    const notes = keys.reduce((sum, _id) => [...sum, list[_id]], [])
     const {dispatch} = useContext(NoteContext)
     const [title, setTitle] = useState("")
     const [text, setText] = useState("")
+    const [activeNoteId, setActiveNoteId] = useState(null)
+    const activeNote = list[activeNoteId]
 
     useEffect(() =>
     {
         noteActions.getNotes({dispatch})
-        console.log(note)
     }, [])
 
     function onTitleChange(e)
@@ -27,14 +29,47 @@ function Note()
         setText(e.target.value)
     }
 
-    function onSaveClick()
+    function onAddClick()
     {
         noteActions.addNote({data: {title, text}, dispatch})
             .then(createdNote =>
             {
-                console.log("ok")
+                setActiveNoteId(createdNote?.data?._id)
             })
             .catch(err =>
+            {
+                console.log("error")
+            })
+    }
+
+    function onDeleteClick()
+    {
+        noteActions.deleteNote({data: {note_id}, dispatch})
+            .then(() =>
+            {
+                console.log("ok")
+            })
+            .catch(() =>{
+                console.log("error")
+            })
+    }
+
+    function onNoteClick(item)
+    {
+        return function ()
+        {
+            setActiveNoteId(item._id)
+        }
+    }
+
+    function onSaveClick()
+    {
+        noteActions.updateNote({data: {title, text, note_id}, dispatch})
+            .then(() =>
+            {
+                console.log("ok")
+            })
+            .catch(() =>
             {
                 console.log("error")
             })
@@ -44,14 +79,14 @@ function Note()
         <div className="note">
             <div className="note-panel">
                 <div className="note-panel-header">
-                    <DeleteSvg className="note-panel-header-delete"/>
+                    {activeNote && <DeleteSvg className="note-panel-header-delete" onClick={onDeleteClick}/>}
                 </div>
                 <div className="note-panel-detail">
                     {
-                        Object.values(note).map(item =>
-                            <div className="note-panel-note-box">
-                                <div className="note-panel-note-box-title">{item.title}</div>
-                                <div className="note-panel-note-box-text">{item.text}</div>
+                        notes.map(item =>
+                            <div key={item._id} className="note-panel-note-box" onClick={onNoteClick(item)}>
+                                <div className="note-panel-note-box-title">{item.title || "empty note"}</div>
+                                <div className="note-panel-note-box-text">{item.text || "‌"}</div>
                             </div>,
                         )
                     }
@@ -60,13 +95,16 @@ function Note()
             <div className="note-border"></div>
             <div className="note-body">
                 <div className="note-body-header">
-                    <WriteSvg className="note-body-header-add-note"/>
-                    <button className="note-body-header-btn" onClick={onSaveClick}>save</button>
+                    <WriteSvg className="note-body-header-add-note" onClick={onAddClick}/>
+                    {activeNote && <button className="note-body-header-btn" onClick={onSaveClick}>save</button>}
                 </div>
-                <div className="note-body-detail">
-                    <input className="note-body-title" onChange={onTitleChange}/>
-                    <textarea className="note-body-text" onChange={onTextChange}/>
-                </div>
+                {
+                    activeNote &&
+                    <div key={activeNote._id} className="note-body-detail">
+                        <input className="note-body-title" defaultValue={activeNote.title} onChange={onTitleChange}/>
+                        <textarea className="note-body-text" defaultValue={activeNote.text} onChange={onTextChange}/>
+                    </div>
+                }
             </div>
         </div>
     )

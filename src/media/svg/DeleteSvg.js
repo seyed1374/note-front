@@ -1,7 +1,7 @@
-function deleteSvg({className})
+function deleteSvg({className, onClick})
 {
     return (
-        <svg className={className} fill="#b5b0b0" width="800px" height="800px" viewBox="0 0 482.428 482.429">
+        <svg className={className} onClick={onClick} fill="#b5b0b0" width="800px" height="800px" viewBox="0 0 482.428 482.429">
             <path d="M381.163,57.799h-75.094C302.323,25.316,274.686,0,241.214,0c-33.471,0-61.104,25.315-64.85,57.799h-75.098
 			c-30.39,0-55.111,24.728-55.111,55.117v2.828c0,23.223,14.46,43.1,34.83,51.199v260.369c0,30.39,24.724,55.117,55.112,55.117
 			h210.236c30.389,0,55.111-24.729,55.111-55.117V166.944c20.369-8.1,34.83-27.977,34.83-51.199v-2.828
