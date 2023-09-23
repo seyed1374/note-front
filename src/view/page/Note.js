@@ -6,17 +6,22 @@ import {NoteContext} from "../../context/note/noteReducer"
 
 function Note()
 {
-    const {state: {list, keys, note_id}} = useContext(NoteContext)
+    const {state: {list, keys}} = useContext(NoteContext)
     const notes = keys.reduce((sum, _id) => [...sum, list[_id]], [])
     const {dispatch} = useContext(NoteContext)
     const [title, setTitle] = useState("")
     const [text, setText] = useState("")
     const [activeNoteId, setActiveNoteId] = useState(null)
     const activeNote = list[activeNoteId]
+    const note_id = activeNoteId
+    const titleUpdate = activeNote?.title
+    const textUpdate = activeNote?.text
+
 
     useEffect(() =>
     {
         noteActions.getNotes({dispatch})
+
     }, [])
 
     function onTitleChange(e)
@@ -49,7 +54,8 @@ function Note()
             {
                 console.log("ok")
             })
-            .catch(() =>{
+            .catch(() =>
+            {
                 console.log("error")
             })
     }
@@ -64,7 +70,7 @@ function Note()
 
     function onSaveClick()
     {
-        noteActions.updateNote({data: {title, text, note_id}, dispatch})
+        noteActions.updateNote({data: {title: titleUpdate, text: textUpdate, note_id}, dispatch})
             .then(() =>
             {
                 console.log("ok")
