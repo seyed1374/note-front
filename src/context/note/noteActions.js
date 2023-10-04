@@ -30,7 +30,7 @@ function getNotes({dispatch})
 
 function updateNote({data: {title, text, note_id}, dispatch})
 {
-    return request.post({url: API_URLS.note, data: {title, text, note_id}})
+    return request.patch({url: API_URLS.note, data: {title, text, note_id}})
         .then(res =>
         {
             dispatch({

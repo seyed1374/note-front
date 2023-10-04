@@ -5,6 +5,7 @@ import Login from "./view/page/Login"
 import {useContext} from "react"
 import {UserContext} from "./context/user/userReducer"
 import Note from "./view/page/Note"
+import PrivateRoute from "./view/component/PrivateRoute"
 
 function App()
 {
@@ -13,9 +14,9 @@ function App()
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route path={URLS.Signup} element={<Signup/>}/>
-                    <Route path={URLS.Login} element={<Login/>}/>
-                    <Route path={URLS.Note} element={<Note/>}/>
+                    <Route path={URLS.Signup} element={<PrivateRoute ifLogin={false}><Signup/></PrivateRoute>}/>
+                    <Route path={URLS.Login} element={<PrivateRoute ifLogin={false}><Login/></PrivateRoute>}/>
+                    <Route path="*" element={<PrivateRoute><Note/></PrivateRoute>}/>
                 </Routes>
             </BrowserRouter>
         </>
